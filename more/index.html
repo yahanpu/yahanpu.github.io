@@ -9,10 +9,12 @@
 <style>
 
 :root{
-  --bg:#f5f5f3;
-  --text:#111111;
-  --muted:#777777;
-  --line:#ddddda;
+  --bg:#f4f3ef;
+  --card:#faf9f6;
+  --text:#161616;
+  --muted:#77736c;
+  --line:#d9d6cf;
+  --accent:#767d6b;
 }
 
 *{
@@ -35,12 +37,19 @@ body{
     "Segoe UI",
     system-ui,
     sans-serif;
+
+  -webkit-font-smoothing:antialiased;
 }
 
+
+/* =====================
+   PAGE
+===================== */
+
 .container{
-  max-width:760px;
-  margin:auto;
-  padding:80px 28px;
+  max-width:1080px;
+  margin:0 auto;
+  padding:90px 42px 70px;
 }
 
 
@@ -49,91 +58,239 @@ body{
 ===================== */
 
 header{
-  margin-bottom:100px;
+  min-height:420px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  border-bottom:1px solid var(--line);
+
+  margin-bottom:120px;
+}
+
+.eyebrow{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2.4px;
+
+  color:var(--muted);
+
+  margin-bottom:24px;
 }
 
 h1{
-  font-size:64px;
-  line-height:1;
+  margin:0;
 
-  margin:0 0 18px;
+  max-width:760px;
 
-  font-weight:600;
-  letter-spacing:-2px;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:78px;
+  line-height:.95;
+
+  font-weight:400;
+  letter-spacing:-3px;
 }
 
 .intro{
+  margin-top:32px;
+
+  max-width:570px;
+
   font-size:18px;
+  line-height:1.85;
+
   color:var(--muted);
-
-  max-width:540px;
-
-  line-height:1.8;
 }
 
 
 /* =====================
-   SECTIONS
+   COMMON SECTION
 ===================== */
 
-.photo-section{
-  margin-bottom:110px;
+.section{
+  margin-bottom:150px;
 }
 
-.photo-section img{
-  width:100%;
+.section-header{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:24px;
 
-  border-radius:20px;
+  align-items:start;
+
+  margin-bottom:42px;
+}
+
+.number{
+  padding-top:8px;
+
+  font-size:12px;
+  letter-spacing:1.8px;
+
+  color:#aaa59c;
+}
+
+.section-title{
+  margin:0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:43px;
+  font-weight:400;
+  letter-spacing:-1.2px;
+}
+
+.section-content{
+  margin-left:104px;
+}
+
+.description{
+  max-width:650px;
+
+  margin-top:28px;
+
+  font-size:17px;
+  line-height:1.9;
+
+  color:var(--muted);
+}
+
+
+/* =====================
+   FIGURE SKATING
+===================== */
+
+.skating-image{
+  width:100%;
+  height:610px;
 
   display:block;
 
-  margin-bottom:28px;
-}
+  object-fit:cover;
 
-.text{
-  max-width:620px;
-}
-
-h2{
-  font-size:28px;
-
-  margin:0 0 12px;
-
-  font-weight:600;
-
-  letter-spacing:-0.5px;
-}
-
-p{
-  margin:0;
-
-  color:var(--muted);
-
-  font-size:17px;
-
-  line-height:1.9;
+  border-radius:3px;
 }
 
 
 /* =====================
-   CURRENT LEVEL
+   HIKING GALLERY
+===================== */
+
+.hiking-gallery{
+  display:grid;
+
+  grid-template-columns:1.2fr .8fr;
+
+  gap:22px;
+
+  align-items:start;
+}
+
+.hiking-gallery img{
+  width:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  border-radius:3px;
+}
+
+.hiking-gallery .main{
+  height:610px;
+}
+
+.hiking-gallery .secondary{
+  height:430px;
+
+  margin-top:105px;
+}
+
+
+/* =====================
+   IMAGE EFFECT
+===================== */
+
+.image-wrap{
+  overflow:hidden;
+  border-radius:3px;
+}
+
+.image-wrap img{
+  transition:
+    transform .7s cubic-bezier(.2,.7,.2,1),
+    filter .7s ease;
+}
+
+.image-wrap:hover img{
+  transform:scale(1.018);
+}
+
+
+/* =====================
+   TAG
 ===================== */
 
 .level{
-  display:inline-block;
+  display:inline-flex;
 
-  margin-top:15px;
+  align-items:center;
 
-  padding:6px 10px;
+  margin-top:22px;
+
+  padding:9px 14px;
 
   border:1px solid var(--line);
   border-radius:999px;
 
-  background:#ffffff;
+  background:rgba(255,255,255,.35);
 
-  color:#666;
+  font-size:11px;
 
-  font-size:12px;
+  letter-spacing:.4px;
+
+  color:#716d65;
+}
+
+
+/* =====================
+   QUOTE / SMALL DETAIL
+===================== */
+
+.detail{
+  display:flex;
+  gap:16px;
+  align-items:center;
+
+  margin-top:32px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-style:italic;
+
+  font-size:15px;
+
+  color:#918c83;
+}
+
+.detail::before{
+  content:"";
+
+  width:38px;
+  height:1px;
+
+  background:#aaa59c;
 }
 
 
@@ -142,11 +299,17 @@ p{
 ===================== */
 
 footer{
-  padding-top:20px;
+  border-top:1px solid var(--line);
 
-  color:#999;
+  padding-top:28px;
 
-  font-size:14px;
+  display:flex;
+  justify-content:space-between;
+
+  color:#9b978f;
+
+  font-size:12px;
+  letter-spacing:.3px;
 }
 
 
@@ -154,14 +317,82 @@ footer{
    MOBILE
 ===================== */
 
-@media(max-width:768px){
-
-  h1{
-    font-size:44px;
-  }
+@media(max-width:800px){
 
   .container{
-    padding:50px 22px;
+    padding:55px 22px 45px;
+  }
+
+  header{
+    min-height:340px;
+
+    margin-bottom:85px;
+  }
+
+  h1{
+    font-size:54px;
+    letter-spacing:-2px;
+  }
+
+  .intro{
+    font-size:16px;
+  }
+
+  .section{
+    margin-bottom:100px;
+  }
+
+  .section-header{
+    grid-template-columns:45px 1fr;
+    gap:14px;
+
+    margin-bottom:28px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .section-content{
+    margin-left:0;
+  }
+
+  .skating-image{
+    height:440px;
+  }
+
+  .hiking-gallery{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .hiking-gallery .main,
+  .hiking-gallery .secondary{
+    height:430px;
+    margin-top:0;
+  }
+
+  .description{
+    font-size:16px;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:8px;
+  }
+
+}
+
+@media(max-width:500px){
+
+  h1{
+    font-size:46px;
+  }
+
+  .skating-image,
+  .hiking-gallery .main,
+  .hiking-gallery .secondary{
+    height:360px;
   }
 
 }
@@ -181,14 +412,19 @@ footer{
 
   <header>
 
+    <div class="eyebrow">
+      Outside the research
+    </div>
+
     <h1>
       More about me
     </h1>
 
     <p class="intro">
-      Outside of research and academics,
-      I enjoy learning new skills through movement,
-      creativity, and consistent practice.
+      Outside of research and academics, I enjoy spending time outdoors
+      and learning skills that require patience, balance, and continuous
+      practice. Figure skating and hiking have become two of my favorite
+      ways to explore movement and the world around me.
     </p>
 
   </header>
@@ -199,31 +435,55 @@ footer{
        FIGURE SKATING
   ====================== -->
 
-  <section class="photo-section">
+  <section class="section">
 
-    <img
-      src="figure_skating.jpg"
-      alt="Figure Skating"
-    >
+    <div class="section-header">
 
-    <div class="text">
+      <div class="number">
+        01
+      </div>
 
-      <h2>
+      <h2 class="section-title">
         Figure Skating
       </h2>
 
-      <p>
+    </div>
+
+
+    <div class="section-content">
+
+      <div class="image-wrap">
+
+        <img
+          class="skating-image"
+          src="figure_skating.jpg"
+          alt="Figure skating"
+        >
+
+      </div>
+
+
+      <p class="description">
+
         Figure skating is one of my favorite sports.
-        I enjoy the combination of balance,
-        movement, music, and technical precision.
+        I enjoy the combination of balance, movement,
+        technical precision, and the sense of progression
+        that comes from mastering a new skill.
+
         I am currently working on one-foot slaloms,
-        backward crossovers, edge control,
-        and gradually progressing toward turns
-        and more advanced footwork.
+        backward crossovers, edge control, and gradually
+        progressing toward turns and more advanced footwork.
+
       </p>
 
+
       <div class="level">
-        Current focus · One-foot slaloms & backward crossovers
+        Current focus · Edge control · One-foot slaloms · Backward crossovers
+      </div>
+
+
+      <div class="detail">
+        Learning movement through precision and repetition.
       </div>
 
     </div>
@@ -233,82 +493,75 @@ footer{
 
 
   <!-- =====================
-       TENNIS
+       HIKING
   ====================== -->
 
-  <section class="photo-section">
+  <section class="section">
 
-    <div class="text">
+    <div class="section-header">
 
-      <h2>
-        Tennis
-      </h2>
-
-      <p>
-        I recently started learning tennis.
-        I am currently building the fundamentals
-        of my forehand and backhand,
-        while gradually developing footwork,
-        consistency, and rally control.
-      </p>
-
-      <div class="level">
-        Current focus · Forehand & backhand fundamentals
+      <div class="number">
+        02
       </div>
+
+      <h2 class="section-title">
+        Hiking
+      </h2>
 
     </div>
 
-  </section>
+
+    <div class="section-content">
 
 
+      <div class="hiking-gallery">
 
-  <!-- =====================
-       SWIMMING
-  ====================== -->
+        <div class="image-wrap">
 
-  <section class="photo-section">
+          <img
+            class="main"
+            src="hiking1.jpg"
+            alt="Hiking in the mountains"
+          >
 
-    <div class="text">
+        </div>
 
-      <h2>
-        Swimming
-      </h2>
 
-      <p>
-        Swimming gives me a sense of calm and balance.
-        I am comfortable with breaststroke
-        and am currently learning freestyle,
-        focusing on body position,
-        breathing, kicking, and stroke coordination.
-      </p>
+        <div class="image-wrap">
 
-      <div class="level">
-        Current focus · Freestyle technique
+          <img
+            class="secondary"
+            src="hiking2.jpg"
+            alt="Mountain landscape while hiking"
+          >
+
+        </div>
+
       </div>
 
-    </div>
 
-  </section>
+      <p class="description">
 
+        Hiking gives me a different sense of exploration.
+        I enjoy long walks through mountains and open landscapes,
+        where the pace is slower and there is time to notice
+        changes in terrain, weather, light, and perspective.
 
+        For me, hiking is both physical training and a way
+        to step away from screens, reset, and experience places
+        more directly.
 
-  <!-- =====================
-       PAINTING
-  ====================== -->
-
-  <section class="photo-section">
-
-    <div class="text">
-
-      <h2>
-        Painting
-      </h2>
-
-      <p>
-        Painting gives me a different way
-        to explore creativity outside of
-        science, research, and physical training.
       </p>
+
+
+      <div class="level">
+        Mountains · Long walks · Outdoor exploration
+      </div>
+
+
+      <div class="detail">
+        A slower way of discovering new places.
+      </div>
 
     </div>
 
@@ -322,7 +575,13 @@ footer{
 
   <footer>
 
-    © 2026 Yahan Pu
+    <span>
+      © 2026 Yahan Pu
+    </span>
+
+    <span>
+      Research · Mountains · Ice
+    </span>
 
   </footer>
 
